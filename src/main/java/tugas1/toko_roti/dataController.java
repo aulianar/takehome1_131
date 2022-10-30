@@ -5,88 +5,36 @@
  */
 package tugas1.toko_roti;
 
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author USER DJOGJA
  */
+    
+@Controller
 public class dataController {
+    tableController result = new tableController();
+    @RequestMapping("/input")
     
-    public Double getHarga(String hrgSayur){
-       
-        Double hargaSayur = Double.valueOf(hrgSayur);
+    public String getHasil(HttpServletRequest data, Model model) {
+        String getNama = data.getParameter("nmRoti");
+        int getJumlah = Integer.parseInt(data.getParameter("jmlRoti"));
+        int getHarga = Integer.parseInt(data.getParameter("hrgRoti"));
         
-        return hargaSayur;
-    }
-    
-    public Double getJumlah(String jmlSayur){
-    
-        Double jumlahSayur = Double.valueOf(jmlSayur);
-    
-        return jumlahSayur;
-    }
-    
-    public Double gettotalBayar(Double jumlahBayar, Double hargaDiskon){
-    
-        Double totalBayar = jumlahBayar - hargaDiskon;
+        int diskon = result.getharga(getJumlah, getHarga);
+        int compute = result.gethitung(getJumlah, getHarga);
         
-        return totalBayar;
-    }
-    
-    public Double getjumlahBayar(Double hrgSayur, Double jmlSayur){
-    
-        Double jumlahBayar = hrgSayur * jmlSayur;
-    
-        return jumlahBayar;
-    }
-    
-    public String getdisc(Double jumlahBayar){
-    
-        String disc = null;
+        model.addAttribute("Nm_Roti",getNama);
+        model.addAttribute("Jml_Roti", getJumlah);
+        model.addAttribute("Harga", ("Rp. "+ getHarga));
+        model.addAttribute("Total", ("Rp. "+(getHarga*getJumlah)));
+        model.addAttribute("Diskon", "Rp. "+ compute);
+        model.addAttribute("TotalDiskon", diskon + " %");
         
-        if (jumlahBayar <10000) {
-            disc = "10";
-        }else if (jumlahBayar <25000){
-            disc = "10";
-        }else{
-            disc = "15";
-        }
-        return disc;
-    }
-    
-    public Double gethargaDisc(Double jumlahBayar, Integer disc){
-        
-        Double hargaDiskon = jumlahBayar * disc /100;
-    
-        return hargaDiskon;
-    }
-    
-    public void gettdiskon(Double totalBayar, Double jumlahBayar, Double hargaDiskon, Integer diskon){
-        
-        if(jumlahBayar < 16000){
-            diskon = 0;
-            totalBayar = jumlahBayar - (jumlahBayar * diskon / 100);
-            hargaDiskon = jumlahBayar * diskon / 100;
-            
-        }else if(jumlahBayar < 25000){
-            diskon = 10;
-            totalBayar = jumlahBayar - (jumlahBayar * diskon / 100);
-            hargaDiskon = jumlahBayar * diskon / 100;
-        }else {
-            diskon = 15;
-            totalBayar = jumlahBayar - (jumlahBayar * diskon / 100);
-            hargaDiskon = jumlahBayar * diskon / 100;
-        }
-    }
-    
-    public Double getPembayaran(String uangBayar){
-        Double pembayaran = Double.valueOf(uangBayar);
-        
-        return pembayaran;
-    }
-    
-    public Double getKembalian(Double totalBayar, Double uangBayar){
-        Double kembalian = uangBayar - totalBayar;
-        
-        return kembalian;
+        return "viewerTable";
     }
 }

@@ -9,32 +9,42 @@ and open the template in the editor.
         <title>Inputan Data</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            h1 {
+                text-align: center;
+                color: #3F3B6C;
+            }
+            h3{
+                text-align: center;
+            }
+            form {text-align: left;}
+            .footer {
+                position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #3F3B6C;
+            color: white;
+            text-align: center;
+            }
+        </style>
+    
     </head>
     <body>
         <div>Data Barang</div>
         <hr>
         <form action="/input">
-            <a>Nama Barang</a><br>
+            <a>Nama Roti</a><br>
             <input type="text" name="nmRoti"><br>
-            <a>Harga Barang</a><br>
-            <input type="number" name="hrgRoti"><br>
-            <a>Jumlah Beli</a><br>
+            <a>Jumlah</a><br>
             <input type="number" name="jmlRoti"><br>
-            <a>Uang Bayar</a><br>
-            <input type="number" name="byrRoti"><br><br>
+            <a>Harga Roti</a><br>
+            <input type="number" name="hrgRoti"><br>
             <button type="submit">Send</button>
         </form>
-        
-        
-        <style>
-            footer{
-                margin-top:  50px;
-                text-align: center;
-            }
-        </style>
-        <footer>
-            <i>Author by</i>
-            <p>Auliana Rizky Puspita Dewi | 20200140131</p>
-        </footer>
     </body>
+    <div class="footer">
+        <p>Auliana Rizky Puspita Dewi | 20200140131</p>
+    </div>
 </html>

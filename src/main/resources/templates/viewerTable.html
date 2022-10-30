@@ -11,42 +11,42 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <table border="2">
-            <dv>Struk Belanja</div>
-            <hr><!-- comment -->
-            <tr>
-                <th>Nama Barang</th>
-                <th>Harga Barang</th>
-                <th>Jumlah Qty</th>
-                <th>Harga Awal</th>
-                <th>Jumlah Diskon</th>
-                <th>Total Harga Diskon</th>
-                <th>Total Bayar</th>
-                <th>Uang Bayar</th>
-                <th>Kembalian</th>
-            </tr>
-                <td th:text="${name}"></td>
-                <td th:text="${price}"></td>
-                <td th:text="${jmlQty}"></td>
-                <td th:text="${hrgAwal}"></td>
-                <td th:text="${disc}"></td>
-                <td th:text="${hargadisc}"></td>
-                <td th:text="${tbayar}"></td>
-                <td th:text="${ubayar}"></td>
-                <td th:text="${kembali}"></td>
-            </tr>
-        </table>
+        <h1>Toko Roti</h1>
+        <hr>
+        <h2>Nota Pembayaran</h2>
+            <table border="1" align="center">
+                <thead>
+                    <tr>
+                        <td>Nama Roti</td>
+                        <td>Jumlah Roti</td>
+                        <td>Harga Roti</td>
+                        <td>Total Harga</td>
+                    </tr>
+                </thead>
 
-        
-        <style>
-            footer{
-                margin-top:  50px;
-                text-align: center;
-            }
-        </style>
-        <footer>
-            <i>Author by</i>
-            <p>Auliana Rizky Puspita Dewi | 20200140131</p>
-        </footer>
+                <tbody>
+                    <tr>
+                        <td th:text="${Nm_Roti}"></td>
+                        <td th:text="${Jml_Roti}"></td>
+                        <td th:text="${Harga}"></td>
+                        <td th:text="${Total}"></td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="4" align="center"> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Diskon</td>
+                    <td colspan="3" th:text="${TotalDiskon}"></td>
+                </tr>
+
+                <tr>
+                    <td>Total</td><!-- comment -->
+                    <td colspan="3" th:text="${Diskon}"></td>
+                </tr>
+                </tbody>
+            </table>
     </body>
 </html>

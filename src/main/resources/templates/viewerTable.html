@@ -10,21 +10,43 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <table border="2">
-        <dv>Struk Belanja</div>
-        <hr><!-- comment -->
-        <tr>
-            <th>Nama Roti</th>
-            <th>Jumlah Qty</th>
-            <th>Harga</th>
-            <th>Disc</th>
-            <th>Total Bayar</th>
-        </tr>
-            <td th:text="${name}"></td>
-            <td th:text="${jumlah}"></td>
-            <td th:text="${price}"></td>
-            <td th:text="${disc}"></td>
-            <td th:text="${tbayar}"></td>
-        </tr>
-    </table>
+    <body>
+        <table border="2">
+            <dv>Struk Belanja</div>
+            <hr><!-- comment -->
+            <tr>
+                <th>Nama Barang</th>
+                <th>Harga Barang</th>
+                <th>Jumlah Qty</th>
+                <th>Harga Awal</th>
+                <th>Jumlah Diskon</th>
+                <th>Total Harga Diskon</th>
+                <th>Total Bayar</th>
+                <th>Uang Bayar</th>
+                <th>Kembalian</th>
+            </tr>
+                <td th:text="${name}"></td>
+                <td th:text="${price}"></td>
+                <td th:text="${jmlQty}"></td>
+                <td th:text="${hrgAwal}"></td>
+                <td th:text="${disc}"></td>
+                <td th:text="${hargadisc}"></td>
+                <td th:text="${tbayar}"></td>
+                <td th:text="${ubayar}"></td>
+                <td th:text="${kembali}"></td>
+            </tr>
+        </table>
+
+        
+        <style>
+            footer{
+                margin-top:  50px;
+                text-align: center;
+            }
+        </style>
+        <footer>
+            <i>Author by</i>
+            <p>Auliana Rizky Puspita Dewi | 20200140131</p>
+        </footer>
+    </body>
 </html>
